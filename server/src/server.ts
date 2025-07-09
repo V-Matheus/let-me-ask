@@ -17,7 +17,7 @@ app.register(fastifyCors, {
 app.setSerializerCompiler(serializerCompiler);
 app.setValidatorCompiler(validatorCompiler);
 
-app.get('/healph', () => {
+app.get('/health', () => {
   return 'OK';
 });
 
