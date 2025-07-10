@@ -8,6 +8,20 @@
       "when": 1752019376250,
       "tag": "0000_dear_miracleman",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752102443498,
+      "tag": "0001_certain_microchip",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752104952665,
+      "tag": "0002_shiny_slipstream",
+      "breakpoints": true
     }
   ]
 }
