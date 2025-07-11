@@ -17,7 +17,7 @@ GET {{baseUrl}}/rooms
 POST {{baseUrl}}/rooms
 Accept: application/json
 Content-Type: application/json
-
+  
 {
   "name": "Sala de teste",
   "description": "Descrição da sala de teste"

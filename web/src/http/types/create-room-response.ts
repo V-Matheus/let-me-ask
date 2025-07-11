@@ -1,0 +1,3 @@
+type CreateRoomResponse = {
+  roomId: string;
+};
