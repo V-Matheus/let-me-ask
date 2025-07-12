@@ -5,7 +5,7 @@ export function useRoomsQuestions(roomId: string) {
     queryKey: ['get-questions', roomId],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:3333/rooms/${roomId}/questions`,
+        `${process.env.API_KEY_URL}/rooms/${roomId}/questions`,
       );
       const result: GetRoomQuesitonsResponse = await response.json();
 
