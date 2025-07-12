@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: agents
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./server/docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+
+  server:
+    build: ./server
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      GENAI_API_KEY: ${GENAI_API_KEY}
+      PORT: 3333
+    ports:
+      - '3333:3333'
+    volumes:
+      - ./server:/app
+    command: npm run start
+
+  web:
+    build: ./web
+    depends_on:
+      - server
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./web:/app
+    command: npm run build
+
+volumes:
+  db_data:

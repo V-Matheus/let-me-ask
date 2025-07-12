@@ -21,10 +21,28 @@ jobs:
         with:
           node-version: '22.14.0'
 
-      - name: Install dependencies
+      - name: Install dependencies (server)
+        working-directory: ./server
         run: npm install
 
-      - name: Build project
+      - name: Generate Drizzle schema
+        working-directory: ./server
+        run: npm run db:generate
+
+      - name: Run migrations
+        working-directory: ./server
+        run: npm run db:migrate
+
+      - name: Build server
+        working-directory: ./server
+        run: npm run build
+
+      - name: Install dependencies (web)
+        working-directory: ./web
+        run: npm install
+
+      - name: Build web
+        working-directory: ./web
         run: npm run build
 
       - name: Deploy to production
