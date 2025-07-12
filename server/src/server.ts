@@ -35,4 +35,4 @@ app.register(getRoomsQuestionsRoute);
 app.register(createQuestionRoute);
 app.register(uploadAudioRoute);
 
-app.listen({ port: env.PORT });
+app.listen({ port: env.PORT, host: env.HOST});
