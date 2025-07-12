@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { fastifyCors } from '@fastify/cors';
 import { fastify } from 'fastify';
 import {
@@ -19,7 +20,7 @@ app.register(fastifyCors, {
   origin: 'http://localhost:5173',
 });
 
-app.register(fastifyMultipart)
+app.register(fastifyMultipart);
 
 app.setSerializerCompiler(serializerCompiler);
 app.setValidatorCompiler(validatorCompiler);
