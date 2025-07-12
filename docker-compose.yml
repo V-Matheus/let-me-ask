@@ -22,8 +22,8 @@ services:
       PORT: 3333
     ports:
       - '3333:3333'
-    volumes:
-      - ./server:/app
+    # volumes:
+    #   - ./server:/app
     command: npm run start
 
   web:
@@ -31,10 +31,10 @@ services:
     depends_on:
       - server
     ports:
-      - '5173:5173'
-    volumes:
-      - ./web:/app
-    command: npm run build
+      - '3000:3000'
+    # volumes:
+    #   - ./web:/app
+    command: npm run preview
 
 volumes:
   db_data:
