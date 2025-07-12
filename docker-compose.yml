@@ -34,7 +34,7 @@ services:
       - '3000:3000'
     # volumes:
     #   - ./web:/app
-    command: npm run preview
+    command: npm run build
 
 volumes:
   db_data:
