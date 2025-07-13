@@ -16,7 +16,6 @@ export const getRoomsQuestionsRoute: FastifyPluginCallbackZod = (app) => {
     },
     async (request) => {
       const { roomId } = request.params;
-      console.log('roomId', roomId);
 
       const result = await db
         .select({
@@ -28,9 +27,6 @@ export const getRoomsQuestionsRoute: FastifyPluginCallbackZod = (app) => {
         .from(schema.questions)
         .where(eq(schema.questions.roomId, roomId))
         .orderBy(desc(schema.questions.createdAt));
-
-      console.log(`Found ${result.length} questions for room: ${roomId}`);
-
       return result;
     },
   );

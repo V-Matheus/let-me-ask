@@ -5,7 +5,7 @@ export function useRoomsQuestions(roomId: string) {
     queryKey: ['get-questions', roomId],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.VITE_API_URL}/rooms/${roomId}/questions`,
+        `${import.meta.env.VITE_API_URL}/rooms/${roomId}/questions`,
       );
       const result: GetRoomQuesitonsResponse = await response.json();
 
